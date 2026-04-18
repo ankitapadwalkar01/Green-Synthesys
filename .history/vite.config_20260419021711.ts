@@ -5,14 +5,9 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
- return {
-  base: "/Green-Synthesys/",   // ← ADD THIS LINE
-
-  plugins: [react(), tailwindcss()],
-  define: {
-   'process.env.GEMINI_API_KEY': JSON.stringify("test"),
-  }, 
-    resolve: {
+  return {
+    define: {
+      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
