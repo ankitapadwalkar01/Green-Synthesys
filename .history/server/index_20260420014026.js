@@ -18,6 +18,7 @@ app.post("/api/gemini", async (req, res) => {
     const { prompt } = req.body; // ✅ THIS LINE WAS MISSING
 
     const response = await fetch(
+      
   `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-001:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
