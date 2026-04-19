@@ -33,11 +33,7 @@ app.post("/api/gemini", async (req, res) => {
 
     const data = await response.json();
 
-  const text =
-  data?.candidates?.[0]?.content?.parts
-    ?.map(p => p.text)
-    ?.join("") ||
-  JSON.stringify(data);
+  
     res.json({ text });
 
   } catch (err) {
