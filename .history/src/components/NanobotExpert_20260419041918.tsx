@@ -65,12 +65,8 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
             <Bot className="w-4 h-4 text-accent-green" />
           </div>
           <div>
-            <h3 className="font-serif font-light text-text-bright text-sm uppercase tracking-widest">
-              NanoSynth Advisor
-            </h3>
-            <p className="text-[9px] text-text-dim font-mono uppercase tracking-[2px]">
-              AI Protocol Database
-            </p>
+            <h3 className="font-serif font-light text-text-bright text-sm uppercase tracking-widest">NanoSynth Advisor</h3>
+            <p className="text-[9px] text-text-dim font-mono uppercase tracking-[2px]">AI Protocol Database</p>
           </div>
         </div>
       </div>
@@ -92,14 +88,12 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
                 {ms.role === 'bot' ? <Bot size={14} /> : <User size={14} />}
               </div>
 
-              <div
-                className={cn(
-                  "p-4 rounded-xl text-xs",
-                  ms.role === 'bot'
-                    ? "bg-dark-card border border-dark-border"
-                    : "bg-accent-green/10 border border-accent-green/20"
-                )}
-              >
+              <div className={cn(
+                "p-4 rounded-xl text-xs",
+                ms.role === 'bot'
+                  ? "bg-dark-card border border-dark-border"
+                  : "bg-accent-green/10 border border-accent-green/20"
+              )}>
                 {ms.content}
               </div>
             </motion.div>
@@ -136,7 +130,5 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
           </button>
         </div>
       </div>
-
-    </div>
-  );
+      );
 };

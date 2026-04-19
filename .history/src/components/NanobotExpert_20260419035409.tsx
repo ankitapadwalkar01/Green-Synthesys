@@ -57,7 +57,7 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
 
   return (
     <div className="flex flex-col h-[500px] bg-dark-sidebar rounded-2xl overflow-hidden border border-dark-border shadow-2xl">
-
+      
       {/* Header */}
       <div className="bg-dark-800 p-4 border-b border-dark-border flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -65,12 +65,8 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
             <Bot className="w-4 h-4 text-accent-green" />
           </div>
           <div>
-            <h3 className="font-serif font-light text-text-bright text-sm uppercase tracking-widest">
-              NanoSynth Advisor
-            </h3>
-            <p className="text-[9px] text-text-dim font-mono uppercase tracking-[2px]">
-              AI Protocol Database
-            </p>
+            <h3 className="font-serif font-light text-text-bright text-sm uppercase tracking-widest">NanoSynth Advisor</h3>
+            <p className="text-[9px] text-text-dim font-mono uppercase tracking-[2px]">AI Protocol Database</p>
           </div>
         </div>
       </div>
@@ -92,14 +88,12 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
                 {ms.role === 'bot' ? <Bot size={14} /> : <User size={14} />}
               </div>
 
-              <div
-                className={cn(
-                  "p-4 rounded-xl text-xs",
-                  ms.role === 'bot'
-                    ? "bg-dark-card border border-dark-border"
-                    : "bg-accent-green/10 border border-accent-green/20"
-                )}
-              >
+              <div className={cn(
+                "p-4 rounded-xl text-xs",
+                ms.role === 'bot'
+                  ? "bg-dark-card border border-dark-border"
+                  : "bg-accent-green/10 border border-accent-green/20"
+              )}>
                 {ms.content}
               </div>
             </motion.div>
@@ -117,26 +111,17 @@ export const NanobotExpert: React.FC<NanobotExpertProps> = ({ currentInputs }) =
       <div className="p-4 border-t border-dark-border">
         <div className="flex gap-2">
           <input
-            type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') handleSend();
-            }}
+            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+            className="flex-1 bg-dark-card border border-dark-border px-3 py-2 text-sm"
             placeholder="Ask something..."
-            className="flex-1 bg-dark-card border border-dark-border px-3 py-2 text-sm text-white"
           />
-
-          <button
-            onClick={handleSend}
-            disabled={isLoading}
-            className="px-4 bg-accent-green text-black rounded"
-          >
+          <button onClick={handleSend} disabled={isLoading}>
             <Send />
           </button>
         </div>
       </div>
-
     </div>
   );
 };
