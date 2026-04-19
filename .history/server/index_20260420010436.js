@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5050;
 app.use(cors());
 app.use(express.json());
 
+// test route
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
@@ -33,6 +34,7 @@ app.post("/api/gemini", async (req, res) => {
 
     const data = await response.json();
 
+    // extract clean text
     const text =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "No response from Gemini";
